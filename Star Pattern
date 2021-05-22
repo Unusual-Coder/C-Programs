@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+void Star_Pattern(int num)
+{
+    for (int i = 0; i < num; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+void Rev_Star_Pattern(int num)
+{
+    for (int i = 0; i < num; i++)
+    {
+        for (int j = 0; j <= num - i - 1; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    int num;
+
+    printf("Press 0 to print Star pattern and 1 to Reverse Star pattern :");
+    scanf("%d", &num);
+
+    if (num == 0)
+    {
+        printf("Enter up to how many rows do you want to print the Star pattern :");
+        scanf("%d", &num);
+        Star_Pattern(num);
+    }
+    else if (num == 1)
+    {
+        printf("Enter up to how many rows do you want to print the Reverse Star Pattern :");
+        scanf("%d", &num);
+        Rev_Star_Pattern(num);
+    }
+
+    return 0;
+}
