@@ -1,0 +1,117 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int generateRandomNumber(int n)
+{
+    srand(time(NULL));
+    return rand() % n;
+}
+
+int grather(char char1, char char2)
+{
+
+    /*Retruns 1 if C1>C2 and 0 otherwise . If c1==c2 it will return -1*/
+
+    if (char1 == char2)
+    {
+        return -1;
+    }
+
+    else if ((char1 == 'r') && (char2 == 's'))
+    {
+        return 1;
+    }
+
+    else if ((char2 == 'r') && (char1 == 's'))
+    {
+        return 0;
+    }
+
+    else if ((char1 == 'p') && (char2 == 'r'))
+    {
+        return 1;
+    }
+
+    else if ((char2 == 'p') && (char1 == 'r'))
+    {
+        return 0;
+    }
+
+    else if ((char1 == 's') && (char2 == 'p'))
+    {
+        return 1;
+    }
+
+    else if ((char2 == 's') && (char1 == 'p'))
+    {
+        return 0;
+    }
+}
+
+int main()
+{
+
+    int playerScore = 0, compScore = 0, temp;
+    char playerChar, compChar;
+    char dict[] = {'r', 'p', 's'};
+
+    printf("\n");
+
+    printf("welcome to the Rock Paper Scissors \n");
+
+    for (int i = 0; i < 3; i++)
+    {
+        //Take player 1's Input;
+        printf("player 1 's Turn:\n");
+        printf("Chhoose 1 for Rock  2 For Paper 3 Scissors\n");
+        scanf("%d", &temp);
+        getchar();
+        playerChar = dict[temp - 1];
+        printf("You chose %c\n", playerChar);
+
+        //Generate Computer 1's Input;
+        printf("Computer's Turn:\n");
+        printf("Chhoose 1 for Rock  2 For Paper 3 Scissors\n");
+        temp = generateRandomNumber(3) + 1;
+        compChar = dict[temp - 1];
+        printf("CPU chose %c\n", compChar);
+
+        // Compare the Scores;
+        if (grather(compChar, playerChar) == 1)
+        {
+            compScore += 1;
+            printf("CPU you got it!\n");
+        }
+        else if (grather(compChar, playerChar) == -1)
+        {
+            compScore += 1;
+            playerScore += 1;
+            printf("Its a Draw !\n");
+        }
+        else
+        {
+            playerScore += 1;
+            printf("You got it !\n");
+        }
+
+        printf("You : %d\nCPU : %d\n\n", playerScore, compScore);
+    }
+
+    if (playerScore > compScore)
+    {
+        printf("You win the Game\n\n");
+    }
+
+    else if (playerScore < compScore)
+    {
+        printf("CPU win the Game\n");
+    }
+
+    else
+    {
+        printf("Its a Draw\n");
+    }
+
+    return 0;
+}
