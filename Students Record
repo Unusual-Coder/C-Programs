@@ -1,0 +1,122 @@
+#include <stdio.h>
+#include <conio.h>
+
+char fname[20], lname[20], mname[20], city[100], username[10], password[10];
+int std;
+static int percentage;
+double Number;
+
+void admission()
+{
+    printf("\n\n");
+    printf("     First Name : ");
+    scanf("     %s", &fname);
+    printf("\n");
+
+    printf("     Middle Name : ");
+    scanf("     %s", &mname);
+    printf("\n");
+
+    printf("     Last Name : ");
+    scanf("     %s", &lname);
+    printf("\n");
+
+    printf("     Mobile No : ");
+    scanf("     %lu", &Number);
+    printf("\n");
+
+    printf("     City : ");
+    scanf("     %s", &city);
+    printf("\n");
+
+    printf("     Standard : ");
+    scanf("     %d", &std);
+    printf("\n");
+
+    printf("     Last Year Percentage : ");
+    scanf("     %d", &percentage);
+    printf("\n\n");
+
+    if (percentage > 90)
+    {
+        printf("     Congratulations You Have been Alloted Class - A for std - %dth ..!\n", std);
+    }
+    else if (percentage > 80)
+    {
+        printf("     Congratulations You Have been Alloted Class - B for std - %dth ..!\n", std);
+    }
+    else if (percentage > 70)
+    {
+        printf("     Congratulations You Have been Alloted Class - C for std - %dth ..!\n", std);
+    }
+    else if (percentage > 60)
+    {
+        printf("     Congratulations You Have been Alloted Class - D for std - %dth ..!\n", std);
+    }
+    printf("     Roll NO : %d - 1 : %d\n\n", percentage, percentage - 1);
+
+    printf("     Teaching will start from next week. And from time to time you will receive instructional updates on your registered mobile number .. (If you have any questions, please call the given number - 1800 457 9636) Thank You ..!\n\n");
+}
+
+void Student_Record()
+{
+    printf("\n\n     First Name  : %s\n", fname);
+    printf("     Middle Name : %s\n", mname);
+    printf("     Last Name  : %s\n", lname);
+    printf("     Standard    : %d\n", std);
+    printf("     Roll No     : %d\n", percentage);
+    printf("     City     : %s\n", city);
+}
+
+void Staff_Record()
+{
+    printf("     Username : ");
+    scanf("     %s", &username);
+    printf("     Password : ");
+    scanf("     %s", &password);
+
+    printf("\n\n     NO Currently Records Available\n");
+}
+
+void About_Us()
+{
+    printf("\n\n     *(*-*)* Unusual Coder *(*-*)*     \n\n");
+}
+
+int main()
+{
+
+    while (1)
+    {
+        int choice;
+
+        printf("\n     Welcome to Unusual Academy     \n\n");
+        printf("     1.Admission\n     2.Student Record\n     3.Staff Record\n     4.About us\n     5.Exit\n\n");
+        printf("     Enter your Choice --> ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            admission();
+            break;
+        case 2:
+            Student_Record();
+            break;
+        case 3:
+            Staff_Record();
+            break;
+        case 4:
+            About_Us();
+            break;
+        case 5:
+            goto end;
+        default:
+            printf("\n\n     Please Enter valid Input\n\n");
+            break;
+        }
+    }
+end:
+
+    return 0;
+}
